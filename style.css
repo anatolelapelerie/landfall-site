@@ -1,0 +1,18 @@
+:root { --paper: #f1e7d0; --ink: #33261c; --track: #8c2e1f; --soft: rgba(51,38,28,.65); }
+@media (prefers-color-scheme: dark) { :root { --paper: #1f1a15; --ink: #efe4cf; --track: #d66a52; --soft: rgba(239,228,207,.65); } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "New York", "Iowan Old Style", "Palatino", Georgia, serif; line-height: 1.6; }
+main { max-width: 680px; margin: 0 auto; padding: 56px 20px 80px; }
+h1 { font-size: 2.6rem; margin: 0 0 .2rem; letter-spacing: -.01em; }
+h2 { font-size: 1.25rem; margin: 2.2rem 0 .6rem; }
+.eyebrow { color: var(--track); font-size: .78rem; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; }
+.rule { display: flex; align-items: center; gap: 10px; margin: 1.2rem 0 1.6rem; color: var(--soft); }
+.rule::before, .rule::after { content: ""; height: 1px; background: currentColor; flex: 1; opacity: .5; }
+.rule span { width: 9px; height: 9px; background: var(--track); transform: rotate(45deg); }
+p, li { font-size: 1.05rem; }
+.soft { color: var(--soft); font-style: italic; }
+a { color: var(--track); }
+nav { margin-top: 3rem; font-size: .95rem; }
+nav a { margin-right: 1.2rem; }
+hr { border: 0; border-top: 1px solid var(--soft); opacity: .4; margin: 3rem 0; }
