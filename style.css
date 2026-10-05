@@ -16,3 +16,5 @@ a { color: var(--track); }
 nav { margin-top: 3rem; font-size: .95rem; }
 nav a { margin-right: 1.2rem; }
 hr { border: 0; border-top: 1px solid var(--soft); opacity: .4; margin: 3rem 0; }
+.title { display: block; margin: 0 0 1.4rem; }
+.title img { max-width: 100%; height: auto; display: block; }
