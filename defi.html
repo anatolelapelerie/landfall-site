@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landfall — Un défi vous attend · A challenge awaits</title><link rel="stylesheet" href="style.css">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png"></head>
+<body><main>
+<a class="title" href="index.html"><picture><source srcset="title-dark.png" media="(prefers-color-scheme: dark)"><img src="title.png" alt="Landfall" width="180"></picture></a>
+<h1 id="head">Un défi vous attend</h1>
+<div class="rule"><span></span></div>
+<p id="lead">Un capitaine vous envoie sa traversée : la même mer, le même départ, le même port. Ouvrez-la dans Landfall et voyez si vous faites mieux.</p>
+<p><a id="open" class="button" href="#">Ouvrir dans Landfall</a></p>
+<p id="none" hidden>Ce lien ne contient pas de traversée.</p>
+<p id="later">Landfall n’est pas encore sur cet iPhone ? Installez-le, puis rouvrez ce lien.</p>
+<nav><a href="index.html">Landfall</a><a href="support.html">Assistance · Support</a></nav>
+</main>
+<script>
+// The crossing travels after the "#": it never reaches any server, this page only hands it on.
+(() => {
+  const payload = location.hash.slice(1);
+  const en = !(navigator.language || 'fr').toLowerCase().startsWith('fr');
+  if (en) {
+    document.documentElement.lang = 'en';
+    document.getElementById('head').textContent = 'A challenge awaits';
+    document.getElementById('lead').textContent = 'A captain has sent you their crossing: the same sea, the same start, the same port. Open it in Landfall and see if you can do better.';
+    document.getElementById('open').textContent = 'Open in Landfall';
+    document.getElementById('none').textContent = 'This link holds no crossing.';
+    document.getElementById('later').textContent = 'Landfall not on this iPhone yet? Install it, then open this link again.';
+  }
+  const open = document.getElementById('open');
+  if (!/^[A-Za-z0-9_-]+$/.test(payload)) {
+    open.parentElement.hidden = true;
+    document.getElementById('none').hidden = false;
+    return;
+  }
+  open.href = 'landfall://challenge/' + payload;
+  // straight into the game where it is installed; the button stays for anywhere it is not
+  if (/iPhone|iPad|iPod/.test(navigator.userAgent)) location.href = open.href;
+})();
+</script>
+<script src="wake.js" defer></script></body></html>

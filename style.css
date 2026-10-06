@@ -18,3 +18,5 @@ nav a { margin-right: 1.2rem; }
 hr { border: 0; border-top: 1px solid var(--soft); opacity: .4; margin: 3rem 0; }
 .title { display: block; margin: 0 0 1.4rem; }
 .title img { max-width: 100%; height: auto; display: block; }
+.button { display: inline-block; padding: .6rem 1.5rem; border-radius: 999px; background: var(--track);
+          color: var(--paper); text-decoration: none; font-weight: 600; }
